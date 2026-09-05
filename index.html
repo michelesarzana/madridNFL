@@ -270,6 +270,25 @@
   .hotel-link { display: inline-flex; align-items: center; gap: 6px; background: var(--accent); color: #fff; border-radius: 980px; padding: 9px 18px; font-size: 13px; font-weight: 600; text-decoration: none; transition: background .2s; }
   .hotel-link:hover { background: var(--accent-hover); }
 
+  /* ── HOTEL TAB TOGGLE ── */
+  .hotel-tabs { display: flex; gap: 10px; margin-bottom: 32px; flex-wrap: wrap; }
+  .hotel-tab-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--bg); border: 2px solid var(--border);
+    border-radius: 980px; padding: 10px 22px;
+    font-size: 15px; font-weight: 600; cursor: pointer;
+    transition: background .2s, border-color .2s, color .2s; color: var(--text-secondary);
+  }
+  .hotel-tab-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .hotel-tab-panel { display: none; }
+  .hotel-tab-panel.active { display: block; }
+  .centro-note {
+    background: linear-gradient(135deg,#e8f4fd,#d6eaf8); border: 1px solid #aed6f1;
+    border-radius: 12px; padding: 14px 20px; margin-bottom: 28px;
+    font-size: 14px; color: #1a5276; display: flex; align-items: center; gap: 10px;
+  }
+  .centro-note strong { color: #0071e3; }
+
   /* ── ATTRAZIONI ── */
   #madrid { background: var(--bg); }
   .attractions-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-bottom: 48px; }
@@ -850,86 +869,158 @@
     <div class="fade-in">
       <p class="section-eyebrow">🏨 Dove Dormire</p>
       <h2 class="section-title">Hotel Selezionati</h2>
-      <p class="section-sub">Sei hotel vicino al Bernabéu, selezionati per posizione, qualità e rapporto qualità/prezzo. Prenota presto — il weekend NFL si riempie rapidamente.</p>
+      <p class="section-sub">Hotel scelti per posizione, qualità e rapporto qualità/prezzo. Prenota presto — il weekend NFL si riempie rapidamente.</p>
     </div>
 
     <div id="map" class="fade-in"></div>
 
-    <div class="hotels-grid fade-in">
-
-      <div class="hotel-card">
-        <div class="hotel-img" style="background:linear-gradient(135deg,#1a2a3a,#2d4a6e);">🏨</div>
-        <div class="hotel-body">
-          <div class="hotel-stars">★★★★</div>
-          <div class="hotel-name">AC Hotel Aitana by Marriott</div>
-          <div class="hotel-dist">📍 350m dal Bernabéu · 5 min a piedi</div>
-          <div class="hotel-price">€103 <span>/ notte</span></div>
-          <div class="hotel-why">Il più vicino allo stadio. Ottimo rapporto qualità/prezzo per un 4★ di catena internazionale.</div>
-          <a href="https://www.booking.com/hotel/es/ac-aitana.html" target="_blank" class="hotel-link">Vedi su Booking →</a>
-        </div>
-      </div>
-
-      <div class="hotel-card">
-        <div class="hotel-img" style="background:linear-gradient(135deg,#1a3a2a,#2d6e4a);">🌊</div>
-        <div class="hotel-body">
-          <div class="hotel-stars">★★★★</div>
-          <div class="hotel-name">H10 Tribeca</div>
-          <div class="hotel-dist">📍 450m dal Bernabéu · 6 min a piedi</div>
-          <div class="hotel-price">€120 <span>/ notte</span></div>
-          <div class="hotel-why">Rooftop pool con vista, design contemporaneo. Ideale per il weekend.</div>
-          <a href="https://www.booking.com/hotel/es/h10-tribeca.html" target="_blank" class="hotel-link">Vedi su Booking →</a>
-        </div>
-      </div>
-
-      <div class="hotel-card">
-        <div class="hotel-img" style="background:linear-gradient(135deg,#2a1a3a,#4a2d6e);">💆</div>
-        <div class="hotel-body">
-          <div class="hotel-stars">★★★★</div>
-          <div class="hotel-name">NH Collection Eurobuilding</div>
-          <div class="hotel-dist">📍 600m dal Bernabéu · 8 min a piedi</div>
-          <div class="hotel-price">€159 <span>/ notte</span></div>
-          <div class="hotel-why">Spa completa, ristorante premiato. Vicino alle iconiche Torri KIO.</div>
-          <a href="https://www.booking.com/hotel/es/nheurobuilding.html" target="_blank" class="hotel-link">Vedi su Booking →</a>
-        </div>
-      </div>
-
-      <div class="hotel-card">
-        <div class="hotel-img" style="background:linear-gradient(135deg,#3a2a1a,#6e4a2d);">⭐</div>
-        <div class="hotel-body">
-          <div class="hotel-stars">★★★★★</div>
-          <div class="hotel-name">Hyatt Regency Hesperia Madrid</div>
-          <div class="hotel-dist">📍 2.5km dal Bernabéu · Metro/Taxi</div>
-          <div class="hotel-price">€280 <span>/ notte</span></div>
-          <div class="hotel-why">Lusso 5★, ristorante stellato Michelin Santceloni, sul Paseo de la Castellana.</div>
-          <a href="https://www.booking.com/hotel/es/hesperiamadrid.html" target="_blank" class="hotel-link">Vedi su Booking →</a>
-        </div>
-      </div>
-
-      <div class="hotel-card">
-        <div class="hotel-img" style="background:linear-gradient(135deg,#1a3a3a,#2d6e6e);">🌿</div>
-        <div class="hotel-body">
-          <div class="hotel-stars">★★★★★</div>
-          <div class="hotel-name">Barceló Imagine</div>
-          <div class="hotel-dist">📍 2.5km dal Bernabéu · Bus S10</div>
-          <div class="hotel-price">da €126 <span>/ notte</span></div>
-          <div class="hotel-why">5★ design a prezzo accessibile, rooftop pool. Il miglior rapporto lusso/prezzo.</div>
-          <a href="https://www.booking.com/hotel/es/barcelo-imagine.html" target="_blank" class="hotel-link">Vedi su Booking →</a>
-        </div>
-      </div>
-
-      <div class="hotel-card">
-        <div class="hotel-img" style="background:linear-gradient(135deg,#3a1a1a,#6e2d2d);">🏛️</div>
-        <div class="hotel-body">
-          <div class="hotel-stars">★★★★</div>
-          <div class="hotel-name">Only YOU Hotel Atocha</div>
-          <div class="hotel-dist">📍 7km dal Bernabéu · Metro ~20 min</div>
-          <div class="hotel-price">€170–200 <span>/ notte</span></div>
-          <div class="hotel-why">Palazzo storico boutique, vicino a Prado, Retiro, Atocha. Ideale se vuoi esplorare il centro.</div>
-          <a href="https://www.booking.com/hotel/es/only-you-atocha.html" target="_blank" class="hotel-link">Vedi su Booking →</a>
-        </div>
-      </div>
-
+    <!-- Tab Toggle -->
+    <div class="hotel-tabs fade-in">
+      <button class="hotel-tab-btn active" onclick="switchHotelTab('bernabeu', this)">📍 Vicino al Bernabéu</button>
+      <button class="hotel-tab-btn" onclick="switchHotelTab('centro', this)">🏙️ Centro Madrid</button>
     </div>
+
+    <!-- Tab: Vicino al Bernabéu -->
+    <div id="hotel-tab-bernabeu" class="hotel-tab-panel active">
+      <div class="hotels-grid fade-in">
+
+        <div class="hotel-card">
+          <div class="hotel-img" style="background:linear-gradient(135deg,#1a2a3a,#2d4a6e);">🏨</div>
+          <div class="hotel-body">
+            <div class="hotel-stars">★★★★</div>
+            <div class="hotel-name">AC Hotel Aitana by Marriott</div>
+            <div class="hotel-dist">📍 350m dal Bernabéu · 5 min a piedi</div>
+            <div class="hotel-price">€103 <span>/ notte</span></div>
+            <div class="hotel-why">Il più vicino allo stadio. Ottimo rapporto qualità/prezzo per un 4★ di catena internazionale.</div>
+            <a href="https://www.booking.com/hotel/es/ac-aitana.html" target="_blank" class="hotel-link">Vedi su Booking →</a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-img" style="background:linear-gradient(135deg,#1a3a2a,#2d6e4a);">🌊</div>
+          <div class="hotel-body">
+            <div class="hotel-stars">★★★★</div>
+            <div class="hotel-name">H10 Tribeca</div>
+            <div class="hotel-dist">📍 450m dal Bernabéu · 6 min a piedi</div>
+            <div class="hotel-price">€120 <span>/ notte</span></div>
+            <div class="hotel-why">Rooftop pool con vista, design contemporaneo. Ideale per il weekend.</div>
+            <a href="https://www.booking.com/hotel/es/h10-tribeca.html" target="_blank" class="hotel-link">Vedi su Booking →</a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-img" style="background:linear-gradient(135deg,#2a1a3a,#4a2d6e);">💆</div>
+          <div class="hotel-body">
+            <div class="hotel-stars">★★★★</div>
+            <div class="hotel-name">NH Collection Eurobuilding</div>
+            <div class="hotel-dist">📍 600m dal Bernabéu · 8 min a piedi</div>
+            <div class="hotel-price">€159 <span>/ notte</span></div>
+            <div class="hotel-why">Spa completa, ristorante premiato. Vicino alle iconiche Torri KIO.</div>
+            <a href="https://www.booking.com/hotel/es/nheurobuilding.html" target="_blank" class="hotel-link">Vedi su Booking →</a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-img" style="background:linear-gradient(135deg,#3a2a1a,#6e4a2d);">⭐</div>
+          <div class="hotel-body">
+            <div class="hotel-stars">★★★★★</div>
+            <div class="hotel-name">Hyatt Regency Hesperia Madrid</div>
+            <div class="hotel-dist">📍 2.5km dal Bernabéu · Metro/Taxi</div>
+            <div class="hotel-price">€280 <span>/ notte</span></div>
+            <div class="hotel-why">Lusso 5★, ristorante stellato Michelin Santceloni, sul Paseo de la Castellana.</div>
+            <a href="https://www.booking.com/hotel/es/hesperiamadrid.html" target="_blank" class="hotel-link">Vedi su Booking →</a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-img" style="background:linear-gradient(135deg,#1a3a3a,#2d6e6e);">🌿</div>
+          <div class="hotel-body">
+            <div class="hotel-stars">★★★★★</div>
+            <div class="hotel-name">Barceló Imagine</div>
+            <div class="hotel-dist">📍 2.5km dal Bernabéu · Bus S10</div>
+            <div class="hotel-price">da €126 <span>/ notte</span></div>
+            <div class="hotel-why">5★ design a prezzo accessibile, rooftop pool. Il miglior rapporto lusso/prezzo.</div>
+            <a href="https://www.booking.com/hotel/es/barcelo-imagine.html" target="_blank" class="hotel-link">Vedi su Booking →</a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-img" style="background:linear-gradient(135deg,#3a1a1a,#6e2d2d);">🏛️</div>
+          <div class="hotel-body">
+            <div class="hotel-stars">★★★★</div>
+            <div class="hotel-name">Only YOU Hotel Atocha</div>
+            <div class="hotel-dist">📍 7km dal Bernabéu · Metro ~20 min</div>
+            <div class="hotel-price">€170–200 <span>/ notte</span></div>
+            <div class="hotel-why">Palazzo storico boutique, vicino a Prado, Retiro, Atocha. Ideale se vuoi esplorare il centro.</div>
+            <a href="https://www.booking.com/hotel/es/only-you-atocha.html" target="_blank" class="hotel-link">Vedi su Booking →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Tab: Centro Madrid -->
+    <div id="hotel-tab-centro" class="hotel-tab-panel">
+      <div class="centro-note">
+        🏙️ <span><strong>Centro Madrid:</strong> più vivace la sera, quartieri Chueca / Gran Vía / Salamanca — <strong>~25 min al Bernabéu in metro</strong> (L10 fermata Santiago Bernabéu)</span>
+      </div>
+      <div class="hotels-grid fade-in">
+
+        <div class="hotel-card">
+          <div class="hotel-img" style="background:linear-gradient(135deg,#1a2a1a,#2a5c2a);">🎨</div>
+          <div class="hotel-body">
+            <div class="hotel-stars">★★★ boutique</div>
+            <div class="hotel-name">Room Mate Oscar</div>
+            <div class="hotel-dist">📍 Gran Vía / Chueca · Plaza Pedro Zerolo</div>
+            <div class="hotel-price">€140–200 <span>/ notte</span></div>
+            <div class="hotel-why">Design iconico nel cuore di Chueca. Terrazza rooftop, atmosfera vivace, a due passi dalla Gran Vía.</div>
+            <div class="hotel-dist" style="margin-top:8px;">🚇 Metro L5 Chueca → Alonso Martínez → L10 Bernabéu (~18 min) · Taxi ~10 min</div>
+            <a href="https://www.booking.com/hotel/es/room-mate-oscar.html" target="_blank" class="hotel-link" style="margin-top:14px;">Vedi su Booking →</a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-img" style="background:linear-gradient(135deg,#1a1a3a,#2d2d6e);">✨</div>
+          <div class="hotel-body">
+            <div class="hotel-stars">★★★★ design boutique</div>
+            <div class="hotel-name">Only YOU Boutique Hotel</div>
+            <div class="hotel-dist">📍 Chueca / Salesas · C/ Barquillo, 21</div>
+            <div class="hotel-price">€200–320 <span>/ notte</span></div>
+            <div class="hotel-why">Top 4 su TripAdvisor tra 509 hotel a Madrid. Lounge raffinata, servizio eccellente, atmosfera unica.</div>
+            <div class="hotel-dist" style="margin-top:8px;">🚇 Metro L5 Chueca → Alonso Martínez → L10 Bernabéu (~20 min) · Taxi ~12 min</div>
+            <a href="https://www.booking.com/hotel/es/only-you-amp-lounge.html" target="_blank" class="hotel-link" style="margin-top:14px;">Vedi su Booking →</a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-img" style="background:linear-gradient(135deg,#2a1a0a,#6e4a10);">🔑</div>
+          <div class="hotel-body">
+            <div class="hotel-stars">★★★★★ · Small Luxury Hotels · 1 MICHELIN Key</div>
+            <div class="hotel-name">URSO Hotel &amp; Spa</div>
+            <div class="hotel-dist">📍 Chueca / Chamberi · C/ Mejia Lequerica, 8</div>
+            <div class="hotel-price">€443–800 <span>/ notte</span></div>
+            <div class="hotel-why">Lusso assoluto, spa esclusiva, palazzo storico restaurato. 1 MICHELIN Key e membro Small Luxury Hotels of the World.</div>
+            <div class="hotel-dist" style="margin-top:8px;">🚇 Metro L4 Alonso Martínez → L10 Bernabéu (~18 min) · Taxi ~10 min</div>
+            <a href="https://www.booking.com/hotel/es/urso.html" target="_blank" class="hotel-link" style="margin-top:14px;">Vedi su Booking →</a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-img" style="background:linear-gradient(135deg,#2a0a0a,#8b1a1a);">🌹</div>
+          <div class="hotel-body">
+            <div class="hotel-stars">★★★★★ Grand Luxury (Rosewood)</div>
+            <div class="hotel-name">Rosewood Villa Magna</div>
+            <div class="hotel-dist">📍 Salamanca / Castellana · P.o de la Castellana, 22</div>
+            <div class="hotel-price">€757–1500+ <span>/ notte</span></div>
+            <div class="hotel-why">L'indirizzo più esclusivo di Madrid. Sul Paseo de la Castellana, a soli 2,6 km dal Bernabéu — l'hotel più vicino al centro tra le opzioni lusso.</div>
+            <div class="hotel-dist" style="margin-top:8px;">🚇 Metro L10 Rubén Darío → Bernabéu (2 fermate, ~8 min) · A piedi ~26 min lungo la Castellana · Taxi ~5 min</div>
+            <a href="https://www.booking.com/hotel/es/villa-magna.html" target="_blank" class="hotel-link" style="margin-top:14px;">Vedi su Booking →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1219,29 +1310,55 @@ function switchTab(section, tab) {
   }
 }
 
+// ── HOTEL TAB SWITCH ──
+function switchHotelTab(tab, btn) {
+  document.querySelectorAll('.hotel-tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.hotel-tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('hotel-tab-' + tab).classList.add('active');
+  btn.classList.add('active');
+}
+
 // ── LEAFLET MAP ──
 document.addEventListener('DOMContentLoaded', function() {
-  const map = L.map('map').setView([40.4531, -3.6883], 14);
+  const map = L.map('map').setView([40.435, -3.695], 13);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 19
   }).addTo(map);
 
-  // Bernabéu marker (red)
-  const stadiIcon = L.divIcon({
-    html: '<div style="background:#ff3b30;color:white;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:18px;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3);">🏟️</div>',
-    className: '', iconSize: [36,36], iconAnchor: [18,18]
+  // ── ICONS ──
+  // Red (Bernabéu)
+  const redIcon = L.divIcon({
+    className: '',
+    html: '<div style="width:18px;height:18px;background:#ff3b30;border-radius:50%;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.4);"></div>',
+    iconSize: [18,18], iconAnchor: [9,9]
   });
-  L.marker([40.4531, -3.6883], {icon: stadiIcon})
+  // Blue (hotel vicino al Bernabéu)
+  const blueIcon = L.divIcon({
+    className: '',
+    html: '<div style="width:14px;height:14px;background:#0071e3;border-radius:50%;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.4);"></div>',
+    iconSize: [14,14], iconAnchor: [7,7]
+  });
+  // Blue outline (hotel centro — slightly different)
+  const blueOutlineIcon = L.divIcon({
+    className: '',
+    html: '<div style="width:14px;height:14px;background:#5856d6;border-radius:50%;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.4);"></div>',
+    iconSize: [14,14], iconAnchor: [7,7]
+  });
+  // Green (attrazioni)
+  const greenIcon = L.divIcon({
+    className: '',
+    html: '<div style="width:14px;height:14px;background:#34c759;border-radius:50%;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.4);"></div>',
+    iconSize: [14,14], iconAnchor: [7,7]
+  });
+
+  // ── Bernabéu (ROSSO) ──
+  L.marker([40.4531, -3.6883], {icon: redIcon})
     .addTo(map)
-    .bindPopup('<b>🏟️ Estadio Santiago Bernabéu</b><br>Partita: Dom 8 Nov 2026 · 15:30')
+    .bindPopup('<b>🏟️ Estadio Santiago Bernabéu</b><br>🔴 Partita: Dom 8 Nov 2026 · 15:30')
     .openPopup();
 
-  const hotelIcon = L.divIcon({
-    html: '<div style="background:#0071e3;color:white;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:16px;border:2px solid white;box-shadow:0 2px 6px rgba(0,0,0,0.3);">🏨</div>',
-    className: '', iconSize: [32,32], iconAnchor: [16,16]
-  });
-
+  // ── HOTEL VICINO AL BERNABÉU (BLU) ──
   const hotels = [
     { name: 'AC Hotel Aitana by Marriott', lat: 40.4558, lon: -3.6922, stars: '★★★★', price: '€103/notte', dist: '350m dal Bernabéu', url: 'https://www.booking.com/hotel/es/ac-aitana.html' },
     { name: 'H10 Tribeca', lat: 40.4533, lon: -3.6912, stars: '★★★★', price: '€120/notte', dist: '450m dal Bernabéu', url: 'https://www.booking.com/hotel/es/h10-tribeca.html' },
@@ -1252,31 +1369,54 @@ document.addEventListener('DOMContentLoaded', function() {
   ];
 
   hotels.forEach(h => {
-    L.marker([h.lat, h.lon], {icon: hotelIcon})
+    L.marker([h.lat, h.lon], {icon: blueIcon})
       .addTo(map)
-      .bindPopup(`<b>${h.name}</b><br>${h.stars}<br><b>${h.price}</b><br>📍 ${h.dist}<br><a href="${h.url}" target="_blank" style="color:#0071e3;font-weight:600;">Prenota →</a>`);
+      .bindPopup(`<b>🏨 ${h.name}</b><br>${h.stars}<br><b>${h.price}</b><br>📍 ${h.dist}<br><a href="${h.url}" target="_blank" style="color:#0071e3;font-weight:600;">Prenota →</a>`);
   });
 
-  // Attractions (gray markers)
-  const attrIcon = L.divIcon({
-    html: '<div style="background:#6e6e73;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid white;box-shadow:0 2px 4px rgba(0,0,0,0.2);">📍</div>',
-    className: '', iconSize: [28,28], iconAnchor: [14,14]
+  // ── HOTEL CENTRO MADRID (VIOLA/BLU SCURO) ──
+  const hotelsCentro = [
+    { name: 'Room Mate Oscar', lat: 40.4237, lon: -3.6993, stars: '★★★ boutique', price: '€140–200/notte', zona: 'Gran Vía / Chueca', metro: 'L5 Chueca → L10 Bernabéu (~18 min)', url: 'https://www.booking.com/hotel/es/room-mate-oscar.html' },
+    { name: 'Only YOU Boutique Hotel', lat: 40.4224, lon: -3.6960, stars: '★★★★ boutique', price: '€200–320/notte', zona: 'Chueca / Salesas', metro: 'L5 Chueca → L10 Bernabéu (~20 min)', url: 'https://www.booking.com/hotel/es/only-you-amp-lounge.html' },
+    { name: 'URSO Hotel & Spa', lat: 40.4267, lon: -3.6970, stars: '★★★★★ · 1 MICHELIN Key', price: '€443–800/notte', zona: 'Chueca / Chamberi', metro: 'L4 Alonso Martínez → L10 Bernabéu (~18 min)', url: 'https://www.booking.com/hotel/es/urso.html' },
+    { name: 'Rosewood Villa Magna', lat: 40.4367, lon: -3.6889, stars: '★★★★★ Grand Luxury', price: '€757–1500+/notte', zona: 'Salamanca / Castellana', metro: 'L10 Rubén Darío → Bernabéu (2 fermate, ~8 min)', url: 'https://www.booking.com/hotel/es/villa-magna.html' }
+  ];
+
+  hotelsCentro.forEach(h => {
+    L.marker([h.lat, h.lon], {icon: blueOutlineIcon})
+      .addTo(map)
+      .bindPopup(`<b>🏙️ ${h.name}</b><br>${h.stars}<br><b>${h.price}</b><br>📍 ${h.zona}<br>🚇 ${h.metro}<br><a href="${h.url}" target="_blank" style="color:#5856d6;font-weight:600;">Prenota →</a>`);
   });
 
+  // ── ATTRAZIONI (VERDE) ──
   const attractions = [
-    { name: 'Museo del Prado', lat: 40.4138, lon: -3.6921, desc: 'Museo d\'arte principale di Spagna' },
-    { name: 'Parco del Retiro', lat: 40.4153, lon: -3.6844, desc: '118 ettari di verde nel centro' },
-    { name: 'Gran Vía', lat: 40.4202, lon: -3.7020, desc: 'La Broadway di Madrid' },
-    { name: 'Malasaña', lat: 40.4267, lon: -3.7035, desc: 'Quartiere alternativo e movida' },
-    { name: 'Mercado de San Miguel', lat: 40.4153, lon: -3.7083, desc: 'Mercato gastronomico' },
-    { name: 'Palazzo Reale', lat: 40.4179, lon: -3.7143, desc: 'Residenza ufficiale reale' }
+    { name: 'Museo del Prado', lat: 40.4138, lon: -3.6921, desc: 'Il museo d\'arte più importante di Spagna. Goya, Velázquez, El Greco.', how: '🚇 Metro: Banco de España (L2) o Atocha Renfe (L1)' },
+    { name: 'Parco del Retiro', lat: 40.4153, lon: -3.6844, desc: '118 ettari di verde nel cuore di Madrid. Palacio de Cristal, laghetto.', how: '🚇 Metro: Retiro (L9) · Entrata libera' },
+    { name: 'Gran Vía', lat: 40.4202, lon: -3.7020, desc: 'La Broadway di Madrid. Shopping, teatri, cinema d\'epoca.', how: '🚇 Metro: Gran Vía (L1/L5)' },
+    { name: 'Malasaña', lat: 40.4267, lon: -3.7035, desc: 'Quartiere alternativo e creativo. Bar vintage, murales, movida madrilena.', how: '🚇 Metro: Tribunal (L1/L10) o Noviciado (L2)' },
+    { name: 'Mercado de San Miguel', lat: 40.4153, lon: -3.7083, desc: 'Il mercato gastronomico più famoso di Madrid. Tapas, vermouth, jamón.', how: '🚶 A piedi da Plaza Mayor · ~2 min' },
+    { name: 'Palazzo Reale', lat: 40.4179, lon: -3.7143, desc: 'Residenza ufficiale della famiglia reale spagnola. 3.418 stanze.', how: '🚇 Metro: Ópera (L2/L5) · Biglietto ~€14' }
   ];
 
   attractions.forEach(a => {
-    L.marker([a.lat, a.lon], {icon: attrIcon})
+    L.marker([a.lat, a.lon], {icon: greenIcon})
       .addTo(map)
-      .bindPopup(`<b>${a.name}</b><br>${a.desc}`);
+      .bindPopup(`<b>🟢 ${a.name}</b><br>${a.desc}<br><small style="color:#555;">${a.how}</small>`);
   });
+
+  // ── LEGENDA ──
+  const legend = L.control({position: 'bottomright'});
+  legend.onAdd = function() {
+    const div = L.DomUtil.create('div');
+    div.style.cssText = 'background:white;padding:10px 14px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.15);font-size:12px;line-height:1.8;';
+    div.innerHTML = '<b style="font-size:13px;">Legenda</b><br>'
+      + '<span style="display:inline-block;width:12px;height:12px;background:#ff3b30;border-radius:50%;margin-right:6px;vertical-align:middle;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,0.3);"></span>Bernabéu<br>'
+      + '<span style="display:inline-block;width:12px;height:12px;background:#0071e3;border-radius:50%;margin-right:6px;vertical-align:middle;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,0.3);"></span>Hotel vicino allo stadio<br>'
+      + '<span style="display:inline-block;width:12px;height:12px;background:#5856d6;border-radius:50%;margin-right:6px;vertical-align:middle;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,0.3);"></span>Hotel centro Madrid<br>'
+      + '<span style="display:inline-block;width:12px;height:12px;background:#34c759;border-radius:50%;margin-right:6px;vertical-align:middle;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,0.3);"></span>Attrazioni';
+    return div;
+  };
+  legend.addTo(map);
 });
 
 // ── INTERSECTION OBSERVER (fade-in) ──
