@@ -295,6 +295,7 @@
   .attraction-card { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow); display: flex; flex-direction: column; transition: box-shadow .3s, transform .3s; }
   .attraction-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
   .attraction-img { height: 180px; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 56px; }
+  .metro-tooltip { background: #1d1d1f; color: #fff; border: none; border-radius: 8px; font-size: 0.78rem; padding: 4px 10px; }
   .attraction-img.prado { background: linear-gradient(135deg, #2c1810, #5a3020); }
   .attraction-img.retiro { background: linear-gradient(135deg, #1a3a1a, #2d6e2d); }
   .attraction-img.granvia { background: linear-gradient(135deg, #1a1a3a, #2d2d6e); }
@@ -885,7 +886,7 @@
       <div class="hotels-grid fade-in">
 
         <div class="hotel-card">
-          <div class="hotel-img" style="background:linear-gradient(135deg,#1a2a3a,#2d4a6e);">🏨</div>
+          <div class="hotel-img" style="padding:0;"><img src="./hotel_aitana.jpg" alt="AC Hotel Aitana" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a2a3a,#2d4a6e)';this.parentElement.style.alignItems='center';this.parentElement.style.justifyContent='center';this.parentElement.style.fontSize='48px';this.parentElement.textContent='🏨';this.style.display='none';"></div>
           <div class="hotel-body">
             <div class="hotel-stars">★★★★</div>
             <div class="hotel-name">AC Hotel Aitana by Marriott</div>
@@ -897,7 +898,7 @@
         </div>
 
         <div class="hotel-card">
-          <div class="hotel-img" style="background:linear-gradient(135deg,#1a3a2a,#2d6e4a);">🌊</div>
+          <div class="hotel-img" style="padding:0;"><img src="./hotel_tribeca.jpg" alt="H10 Tribeca" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a3a2a,#2d6e4a)';this.parentElement.textContent='🌊';this.style.display='none';"></div>
           <div class="hotel-body">
             <div class="hotel-stars">★★★★</div>
             <div class="hotel-name">H10 Tribeca</div>
@@ -909,7 +910,7 @@
         </div>
 
         <div class="hotel-card">
-          <div class="hotel-img" style="background:linear-gradient(135deg,#2a1a3a,#4a2d6e);">💆</div>
+          <div class="hotel-img" style="padding:0;"><img src="./hotel_eurobuilding.jpg" alt="NH Collection Eurobuilding" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentElement.style.background='linear-gradient(135deg,#2a1a3a,#4a2d6e)';this.parentElement.textContent='💆';this.style.display='none';"></div>
           <div class="hotel-body">
             <div class="hotel-stars">★★★★</div>
             <div class="hotel-name">NH Collection Eurobuilding</div>
@@ -967,7 +968,7 @@
       <div class="hotels-grid fade-in">
 
         <div class="hotel-card">
-          <div class="hotel-img" style="background:linear-gradient(135deg,#1a2a1a,#2a5c2a);">🎨</div>
+          <div class="hotel-img" style="padding:0;"><img src="./hotel_oscar.jpg" alt="Room Mate Oscar" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a2a1a,#2a5c2a)';this.parentElement.textContent='🎨';this.style.display='none';"></div>
           <div class="hotel-body">
             <div class="hotel-stars">★★★ boutique</div>
             <div class="hotel-name">Room Mate Oscar</div>
@@ -980,7 +981,7 @@
         </div>
 
         <div class="hotel-card">
-          <div class="hotel-img" style="background:linear-gradient(135deg,#1a1a3a,#2d2d6e);">✨</div>
+          <div class="hotel-img" style="padding:0;"><img src="./hotel_onlyyou.jpg" alt="Only YOU Boutique Hotel" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentElement.style.background='linear-gradient(135deg,#1a1a3a,#2d2d6e)';this.parentElement.textContent='✨';this.style.display='none';"></div>
           <div class="hotel-body">
             <div class="hotel-stars">★★★★ design boutique</div>
             <div class="hotel-name">Only YOU Boutique Hotel</div>
@@ -1048,7 +1049,7 @@
     <div class="attractions-grid fade-in">
 
       <div class="attraction-card">
-        <div class="attraction-img prado">🖼️</div>
+        <div class="attraction-img prado" style="padding:0;"><img src="./attr_prado.jpg" alt="Museo del Prado" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentElement.style.fontSize='56px';this.parentElement.textContent='🖼️';this.style.display='none';"></div>
         <div class="attraction-body">
           <div class="attraction-emoji">🖼️</div>
           <div class="attraction-name">Museo del Prado</div>
@@ -1058,7 +1059,7 @@
       </div>
 
       <div class="attraction-card">
-        <div class="attraction-img retiro">🌳</div>
+        <div class="attraction-img retiro" style="padding:0;"><img src="./attr_retiro.jpg" alt="Parco del Retiro" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentElement.style.fontSize='56px';this.parentElement.textContent='🌳';this.style.display='none';"></div>
         <div class="attraction-body">
           <div class="attraction-emoji">🌳</div>
           <div class="attraction-name">Parco del Retiro</div>
@@ -1068,7 +1069,7 @@
       </div>
 
       <div class="attraction-card">
-        <div class="attraction-img granvia">🌃</div>
+        <div class="attraction-img granvia" style="padding:0;"><img src="./attr_granvia.jpg" alt="Gran Vía" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentElement.style.fontSize='56px';this.parentElement.textContent='🌃';this.style.display='none';"></div>
         <div class="attraction-body">
           <div class="attraction-emoji">🌃</div>
           <div class="attraction-name">Gran Vía</div>
@@ -1088,7 +1089,7 @@
       </div>
 
       <div class="attraction-card">
-        <div class="attraction-img mercado">🥘</div>
+        <div class="attraction-img mercado" style="padding:0;"><img src="./attr_sanmiguel.jpg" alt="Mercado de San Miguel" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentElement.style.fontSize='56px';this.parentElement.textContent='🥘';this.style.display='none';"></div>
         <div class="attraction-body">
           <div class="attraction-emoji">🥘</div>
           <div class="attraction-name">Mercado de San Miguel</div>
@@ -1325,6 +1326,15 @@ document.addEventListener('DOMContentLoaded', function() {
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 19
   }).addTo(map);
+
+  // ── METRO LINES ──
+  var metroLinesData = [{"id":1,"name":"Linea 1","color":"#81D4FA","dashed":false,"note":"Sol \u2192 Tribunal \u2192 Alonso Martinez","coords":[[40.4168,-3.7038],[40.4240,-3.7030],[40.4267,-3.6920]]},{"id":4,"name":"Linea 4","color":"#795548","dashed":false,"note":"Passa per Alonso Martinez","coords":[[40.4183,-3.6942],[40.4242,-3.6889],[40.4267,-3.6920]]},{"id":5,"name":"Linea 5","color":"#4CAF50","dashed":false,"note":"Sol \u2192 Gran Via \u2192 Chueca \u2192 Alonso Martinez","coords":[[40.4168,-3.7038],[40.4200,-3.7054],[40.4224,-3.6960],[40.4267,-3.6920]]},{"id":6,"name":"Linea 6 Circular","color":"#9E9E9E","dashed":false,"note":"Nuevos Ministerios \u2192 arco verso centro","coords":[[40.4449,-3.6921],[40.4400,-3.6880],[40.4350,-3.6870],[40.4267,-3.6920],[40.4242,-3.6889],[40.4183,-3.6942]]},{"id":10,"name":"Linea 10","color":"#004a97","dashed":true,"note":"Chiusa - bus S10 sostitutivo","coords":[[40.4449,-3.6921],[40.4531,-3.6883],[40.4584,-3.6921],[40.4657,-3.6933]]}];
+  metroLinesData.forEach(function(line) {
+    var opts = {color: line.color, weight: 3.5, opacity: 0.75};
+    if (line.dashed) { opts.dashArray = '8,5'; opts.opacity = 0.55; }
+    var pl = L.polyline(line.coords, opts).addTo(map);
+    pl.bindTooltip((line.dashed ? '\u26a0\ufe0f ' : '') + 'M' + line.id + ' \u2014 ' + line.name + (line.note ? ' (' + line.note + ')' : ''), {sticky:true, className:'metro-tooltip'});
+  });
 
   // ── ICONS ──
   // Red (Bernabéu)
